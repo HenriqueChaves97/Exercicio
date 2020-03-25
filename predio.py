@@ -26,15 +26,15 @@ class Predio():
 
 predio = Predio()
 predio.cadastro_sala(7)
-predio.cadastro_sala(322)
+predio.cadastro_sala(9)
 predio.cadastro_sala(323)
 predio.cadastro_sala(1)
 predio.cadastro_sala(700)
 
-sala1 = predio.find_by_sala(322)
+sala1 = predio.find_by_sala(9)
 sala2 = predio.find_by_sala(324)
 sala3 = predio.find_by_sala(7)
 sala4 = predio.find_by_sala(700)
 
-print("Andar: ", sala3[0])
-print("Sala: ", sala3[1])
+print("Andar: ", sala1 [0])
+print("Sala: ", sala1 [1])
