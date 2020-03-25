@@ -13,8 +13,11 @@ class Predio():
 		self.salas.append([andar, numero])
 
 	def find_by_andar(self, numero):
-		query = [i for i in self.salas if i[0]==numero ][0]
-		return query
+		try:
+			query = [i for i in self.salas if i[0]==numero ][0]
+			return query
+		except:
+			return ["Andar não encontrado!", None]
 
 	def find_by_sala(self, numero):
 		try:
