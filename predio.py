@@ -1,13 +1,15 @@
 
 class Predio():
 	def __init__(self):
-		self.qtd_de_salas_por_andar = 8
-		self.quantidade_de_andares = 100 
-		self.quantidade_total = self.qtd_de_salas_por_andar * self.quantidade_de_andares
+		#quantidade de sala por andares
+		self.qtd_SPA = 8
+		#quantidade de andares
+		self.qtd_andares = 100 
+		self.qtd_total_de_salas = self.qtd_SPA * self.qtd_andares
 		self.salas = []
-		self.nuber_terrio = 400
 
-	def cadastro_sala(self, andar, numero):
+	def cadastro_sala(self, numero):
+		andar = self.qtd_andares -(((self.qtd_andares*self.qtd_SPA)-numero)/self.qtd_SPA)
 		self.salas.append([andar, numero])
 
 	def find_by_andar(self, numero):
@@ -15,15 +17,24 @@ class Predio():
 		return query
 
 	def find_by_sala(self, numero):
-		query = [i for i in self.salas if i[1]==numero ][0]
-		return query
+		try:
+			query = [i for i in self.salas if i[1]==numero ][0]
+			return query
+		except:
+			return [None, "Nenhuma encontrada!"]
+		
 
 predio = Predio()
-predio.cadastro_sala(100, 321)
-predio.cadastro_sala(100, 322)
-predio.cadastro_sala(100, 323)
-predio.cadastro_sala(100, 324)
+predio.cadastro_sala(7)
+predio.cadastro_sala(322)
+predio.cadastro_sala(323)
+predio.cadastro_sala(1)
+predio.cadastro_sala(700)
 
-sala = predio.find_by_sala(322)
-print("Andar: ", sala[0])
-print("Sala: ", sala[1])
+sala1 = predio.find_by_sala(322)
+sala2 = predio.find_by_sala(324)
+sala3 = predio.find_by_sala(7)
+sala4 = predio.find_by_sala(700)
+
+print("Andar: ", sala3[0])
+print("Sala: ", sala3[1])
